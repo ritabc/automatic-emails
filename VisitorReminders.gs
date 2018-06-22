@@ -7,31 +7,16 @@
   - Extra functionality for down the line
       - email specificed 'buddy' at 11.5 month mark (if we want to personally ask 
         for an increase in membership status
-      - [Possibly] Keep track of dues. Should ask Paul if he wants to work in this
-        spreadsheet. If he's willing to keep it updated, the sheet could remind 
-        people that their dues are paid when they're overdue.
-        * Main point of this is so that Paul doens't have to bother people about 
-          dues being overdue
-        * this might be done better in another sheet or tab
-          + However it would be good to have 1 list of all Members
-          + I could make another project called 'Dues Notifications'
-        * Email Paul once this Exploratory Membership up & running to offer that as a possibility
+      - [Possibly] Keep track of dues. 
 
   */
   
   /* TODO:
   - look up how to format emails sent by this project
-  - Ask people if they've been receiving reminder emails from Decision Log... 
-    this is important - is it going to promotions tab? Spam Folder? 
-    * For eg, Anthony on 5/23/2017
-      For eg, Hope on 5/31/2017
-      For eg, Amy on 5/24/2017
   - Ask for input: Can someone write a draft of an email that would be sent at the intervals asking for 
     the Visitor to move up? 
   - Consider: ???? This on the same account as EMS? Could automate the input of data as folks fill out EMS ????
-  - Add validation so that this only runs when folks are Visitors
-    * Corrected: this list will ONLY be Visitors
-  - [NEEDS FIX] If JOIN Date is edited, intervals will not be updated, b/c they are not blank
+  - [NEEDS FIX or NOTING] If JOIN Date is edited, intervals will not be updated, b/c they are not blank
   */
 
 
@@ -83,8 +68,6 @@ function ifJoinedThenPopulateDates() {
     
     // if (JOIN Date is filled out, but not the other dates) {run populateReminderDates(where i = joineCellRow)}
     if(!(activeSheet.getRange(i, JOINED_COL).isBlank()) && (activeSheet.getRange(i, JOINED_COL + 1).isBlank())) {
-      Logger.log(activeSheet.getRange(i, JOINED_COL).isBlank());
-      Logger.log(activeSheet.getRange(i, JOINED_COL + 1).isBlank());
       populateReminderDates(i);
     }
   }
